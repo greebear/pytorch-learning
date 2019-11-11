@@ -15,8 +15,8 @@ img_tensor = img_transform(img)
 img_tensor.unsqueeze_(dim=0)    # C*H*W to B*C*H*W
 
 # ================ 3d kernel (1, 3, 3)
-flag = 1
-# flag = 0
+# flag = 1
+flag = 0
 if flag:
     conv_layer = nn.Conv3d(3, 1, (1, 3, 3), padding=(1, 0, 0), bias=False)
     nn.init.xavier_normal_(conv_layer.weight.data)
@@ -34,8 +34,8 @@ if flag:
     plt.show()
 
 # ================ 3d kernel (3, 3, 3)
-# flag = 1
-flag = 0
+flag = 1
+# flag = 0
 if flag:
     conv_layer = nn.Conv3d(3, 1, (3, 3, 3), padding=(1, 0, 0), bias=False)
     nn.init.xavier_normal_(conv_layer.weight.data)
