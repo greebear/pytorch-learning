@@ -51,7 +51,9 @@ class DogCatDataset(Dataset):
                 for i in range(len(img_names)):
                     img_name = img_names[i]
                     path_img = os.path.join(root, sub_dir, img_name)
-                    label = DogCat_label[sub_dir]
+                    label_name = img_name.split(".")[0]     # 新增代码
+                    label = DogCat_label[label_name]        # 新增代码
+                    # label = DogCat_label[sub_dir]           # 原代码
                     data_info.append((path_img, int(label)))
 
         return data_info
